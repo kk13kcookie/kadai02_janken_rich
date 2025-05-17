@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>NewsArticleExample</title>
+  </head>
+
+  <body>
+    <header id="header" class="bg-white shadow-sm sticky top-0 z-50 p-4">
+      <div
+        class="container grid grid-cols-12 h-[80px] px-4 mx-auto items-center md:text-xl text-base"
+      >
+        <div class="col-span-3">
+          <a href="#" class="flex items-center">
+            <img
+              src="./img/icons/icons8-startup-50.png"
+              alt="company Logo"
+              width="50"
+              height="50"
+            />
+            <span class="text-2xl">UpAsia</span>
+          </a>
+        </div>
+
+        <!-- desktop menu -->
+        <ul
+          class="hidden col-span-9 lg:flex items-center justify-end space-x-8 font-normal"
+        >
+          <li><a href="#">Info</a></li>
+          <li><a href="#">Startup News</a></li>
+          <li>
+            <a
+              href="./jobs.html"
+              class="focus:outline-none items-center flex justify-center md:px-6 md:py-2 border-2 border-solid rounded-md font-normal text-gray-100 border-gray-100 bg-gray-400 hover:text-white hover:bg-gray-300 text-gray-800"
+              >Browse Jobs</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="focus:outline-none items-center flex justify-center md:px-6 md:py-2 border-2 border-solid rounded-md font-normal text-white bg-red-400 hover:bg-red-300"
+              >Employers</a
+            >
+          </li>
+        </ul>
+
+        <!--hum menu icon -->
+        <div class="lg:hidden col-span-1 col-start-12">
+          <button id="button-open" type="button" class="focus:outline-none">
+            <img
+              src="./img/icons/icons8-menu-50.png"
+              alt=""
+              class="justify-end"
+            />
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- hum menu opened -->
+    <div
+      id="mobile-menu"
+      class="lg:hidden fixed inset-0 z-50 bg-white hidden"
+      style="transform: translate3d(0px, 0px, 0px)"
+    >
+      <div class="flex flex-col flex-grow w-full h-full">
+        <div class="flex items-center justify-between p-4 shadow-sm">
+          <a href="#" class="text-gray-700 flex relative">
+            <img src="./img/icons/icons8-startup-50.png" alt="company logo" />
+            <span class="relative top-3">UpAsia</span>
+          </a>
+          <button
+            id="button-close"
+            type="button"
+            class="focus:outline-none items-center flex justify-center"
+          >
+            <img
+              src="./img/icons/icons8-cross-50.png"
+              alt="close menu"
+              width="50"
+              height="50"
+            />
+          </button>
+        </div>
+
+        <div class="flex-grow overflow-y-auto text-xl">
+          <ul class="px-4 text-base">
+            <li>
+              <a
+                href="./jobs.html"
+                class="hum-links py-4 block border-b border-gray-300 border-solid"
+              >
+                Startup Jobs
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hum-links py-4 block border-b border-gray-300 border-solid"
+              >
+                Startup Hiring
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hum-links py-4 block border-b border-gray-300 border-solid"
+              >
+                Startup News
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hum-links py-4 block border-b border-gray-300 border-solid"
+              >
+                Company
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="hum-links py-4 block border-b border-gray-300 border-solid"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-4 space-y-4">
+          <a
+            href="#"
+            class="hum-links focus:outline-none items-center flex justify-center bg-red-500 hover:bg-red-400 text-white md:px-6 md:py-2 md:text-md px-8 py-2 border-2 border-transparent border-solid rounded-md font-400 text-sm"
+          >
+            Post a job
+          </a>
+          <a
+            href="#"
+            class="hum-links focus:outline-none items-center flex justify-center bg-white hover:bg-black text-black hover:text-white md:px-6 md:py-2 md:text-md px-8 py-2 border-2 border-black border-solid rounded-md font-400 text-sm"
+          >
+            Employers
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <main class="overflow-x-hidden">
+      <div class="bg-gray-100 py-4">
+
+        <!-- grid container -->
+        <div class="container grid grid-cols-12 px-4 mx-auto md:py-16 py-8 space-y-8 space-x-16">
+
+          <!-- article div -->
+          <div class="md:col-span-8 col-span-12 space-y-4">
+            <h1 class="text-4xl font-bold">Asian Startup Ecosystem Overview</h1>
+            <p>May 6, 2025</p>
+            <br>
+            <img src="" alt="">
+            <div>
+
+            </div>
+            <article class="space-y-12 text-lg">
+              <p>The Asian startup ecosystem has evolved significantly in recent years, becoming a major force in the global innovation landscape. Here's a brief overview of the current state of the Asian startup market:</p>
+              <h3 class="text-2xl font-medium">Key Hubs</h3>
+              <ul class="space-y-4">
+                <li>China: Despite regulatory challenges, remains a powerhouse with strengths in e-commerce, fintech, and AI</li>
+                <li>India: Experiencing rapid growth with unicorns emerging in fintech, edtech, and direct-to-consumer brands</li>
+                <li>Singapore: Serves as Southeast Asia's startup capital with strong government support</li>
+                <li>South Korea: Known for innovation in gaming, entertainment tech, and advanced manufacturing</li>
+                <li>Japan: Strong in robotics, AI, and deep tech but faces challenges in scaling globally</li>
+                <li>Indonesia: The largest market in Southeast Asia with rising fintech and e-commerce sectors</li>
+                <li>Vietnam: Emerging as a tech talent hub with growing venture capital interest</li>
+              </ul>
+
+              <h3 class="text-2xl font-medium">Current Trends</h3>
+              <ol class="space-y-4">
+                <li>Funding landscape: After the 2021-2022 funding boom, there's been a correction with investors focusing more on profitability and sustainable growth models</li>
+                <li class="mb-1">
+                  Sectors gaining traction:
+                  <ul class="space-y-2">
+                    <li>1. Climate tech and sustainability solutions</li>
+                    <li>2. AI applications across industries</li>
+                    <li>3. AI applications across industries</li>
+                    <li>4. Advanced manufacturing and automation</li>
+                    <li>5. Financial inclusion and fintech infrastructure</li>
+                  </ul>
+                </li>
+                <li>Cross-border collaboration: Increasing partnerships between startups across Asian countries and expansion into neighboring markets</li>
+                <li>Government initiatives: Many Asian governments actively supporting startup growth through policy reforms, grants, and innovation hubs</li>
+                <li>Corporate involvement: Growing corporate venture capital activity and startup-corporate partnerships</li>
+              </ol>
+
+              <div>
+                <p>Authors:</p>
+                <p>Sourced:<a href="#">AAABBB.com</a></p>
+              </div>
+
+            </article>
+          </div>
+
+
+          <!-- sidebar div -->
+          <div class="md:col-span-4 col-span-12">
+
+            <!-- Featured News div -->
+            <div class="">
+              <p class="m-4 border-b border-gray-300 text-xl font-medium pb-2">
+                Featured News >
+              </p>
+
+              <!-- Featured News 1 -->
+              <article
+                class="flex justify-center items-center p-4 m-4 hover:bg-gray-200 border-b border-gray-200"
+              >
+                <a href="#">
+                  <figure class="flex items-center">
+                    <img
+                      src="./img/icons/icons8-company-48-purple.png"
+                      alt="news picture"
+                      style="width: 64px; height: 64px"
+                      class="mr-4"
+                    />
+                    <figcaption class="space-y-4">
+                      <p class="text-xl font-bold">
+                        Southeast Asia Startup rapid growth
+                      </p>
+                      <p>
+                        Singapore maintaining its position as the regional hub for
+                        startups and venture capital
+                      </p>
+                      <p>continue reading</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </article>
+
+              <!-- Featured News 2 -->
+              <article
+                class="flex justify-center items-center p-4 m-4 hover:bg-gray-200 border-b border-gray-200"
+              >
+                <a href="#">
+                  <figure class="flex items-center">
+                    <img
+                      src="./img/icons/icons8-company-48-purple.png"
+                      alt="news picture"
+                      style="width: 64px; height: 64px"
+                      class="mr-4"
+                    />
+                    <figcaption class="space-y-4">
+                      <p class="text-xl font-bold">
+                        Southeast Asia Startup rapid growth
+                      </p>
+                      <p>
+                        Singapore maintaining its position as the regional hub for
+                        startups and venture capital
+                      </p>
+                      <p>continue reading</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </article>
+
+              <!-- Featured News 3 -->
+              <article
+                class="flex justify-center items-center p-4 m-4 hover:bg-gray-200 border-b border-gray-200"
+              >
+                <a href="#">
+                  <figure class="flex items-center">
+                    <img
+                      src="./img/icons/icons8-company-48-purple.png"
+                      alt="news picture"
+                      style="width: 64px; height: 64px"
+                      class="mr-4"
+                    />
+                    <figcaption class="space-y-4">
+                      <p class="text-xl font-bold">
+                        Southeast Asia Startup rapid growth
+                      </p>
+                      <p>
+                        Singapore maintaining its position as the regional hub for
+                        startups and venture capital
+                      </p>
+                      <p>continue reading</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </article>
+     
+            </div>
+            
+            <!-- Relevant News div -->
+            <div class="">
+              <p class="m-4 border-b border-gray-300 text-xl font-medium pb-2">
+                Relevant News >
+              </p>
+
+              <!-- Relevant News 1 -->
+              <article
+                class="flex justify-center items-center p-4 m-4 hover:bg-gray-200 border-b border-gray-200"
+              >
+                <a href="#">
+                  <figure class="flex items-center">
+                    <img
+                      src="./img/icons/icons8-company-48-purple.png"
+                      alt="news picture"
+                      style="width: 64px; height: 64px"
+                      class="mr-4"
+                    />
+                    <figcaption class="space-y-4">
+                      <p class="text-xl font-bold">
+                        Southeast Asia Startup rapid growth
+                      </p>
+                      <p>
+                        Singapore maintaining its position as the regional hub for
+                        startups and venture capital
+                      </p>
+                      <p>continue reading</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </article>
+
+              <!-- Relevant News 2 -->
+              <article
+                class="flex justify-center items-center p-4 m-4 hover:bg-gray-200 border-b border-gray-200"
+              >
+                <a href="#">
+                  <figure class="flex items-center">
+                    <img
+                      src="./img/icons/icons8-company-48-purple.png"
+                      alt="news picture"
+                      style="width: 64px; height: 64px"
+                      class="mr-4"
+                    />
+                    <figcaption class="space-y-4">
+                      <p class="text-xl font-bold">
+                        Southeast Asia Startup rapid growth
+                      </p>
+                      <p>
+                        Singapore maintaining its position as the regional hub for
+                        startups and venture capital
+                      </p>
+                      <p>continue reading</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </article>
+
+              <!-- Relevant News 3 -->
+              <article
+                class="flex justify-center items-center p-4 m-4 hover:bg-gray-200 border-b border-gray-200"
+              >
+                <a href="#">
+                  <figure class="flex items-center">
+                    <img
+                      src="./img/icons/icons8-company-48-purple.png"
+                      alt="news picture"
+                      style="width: 64px; height: 64px"
+                      class="mr-4"
+                    />
+                    <figcaption class="space-y-4">
+                      <p class="text-xl font-bold">
+                        Southeast Asia Startup rapid growth
+                      </p>
+                      <p>
+                        Singapore maintaining its position as the regional hub for
+                        startups and venture capital
+                      </p>
+                      <p>continue reading</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </article>
+
+            </div>
+
+            <!-- Featured Jobs div -->
+            <div class="">
+
+              <!-- Featured jobs heading -->
+              <p class="m-4 border-b border-gray-300 text-xl font-medium pb-2">Featured Jobs ></p>
+
+              <!-- Featured Jobs 1 -->
+              <div
+                class="hover:bg-gray-100 items-center px-5 py-3 space-x-6 bg-white rounded-md cursor-pointer relative flex">
+
+                <!-- img -->
+                <div
+                  class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
+                  style="width: 48px; height: 48px"
+                >
+                  <span
+                    class="bg-white font-medium flex items-center justify-center w-full h-full text-2xl uppercase"
+                  >
+                    <img
+                      src="./img/icons/icons8-company-48-yellow.png"
+                      alt="companyLogo"
+                      class="block w-full"
+                      loading="lazy"
+                      width="48"
+                      height="48"
+                    />
+                  </span>
+                </div>
+              
+                <!-- job info div -->
+                <div class="">
+                  <!-- job title, company name, location Div -->
+                  <div class="">
+                    <a
+                      href="#"
+                      class="font-medium text-lg text-black whitespace-pre-wrap"
+                      >UI/UX Designer</a
+                    >
+                    <!-- Company Name -->
+                    <p class="font-normal mb-1 text-gray-500">AAA</p>
+
+                    <!-- location -->
+                    <div class="flex items-center space-x-4 mb-1">
+                      <span class="">
+                        <a
+                          href="#"
+                          class="px-2 py-1 text-xs uppercase flex inline-flex items-center font-medium md:rounded-sm rounded-xl whitespace-pre-line bg-opacity-10 bg-gray-300 text-gray-600"
+                        >
+                          <img
+                            src="./img/icons/icons8-global-50.png"
+                            alt=""
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                            class="mr-2"
+                          />
+                          <p>Anywhere</p>
+                        </a>
+                      </span>
+                    </div>
+
+                  </div>
+
+                  <!-- skill icons div -->
+                  <div class="flex flex-wrap mb-1 mr-1 flex-grow">
+                    <span class="relative inline-block mb-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Fullstack
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        React
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Mango DB
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Node JS
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Type Script
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Featured Jobs 2 -->
+              <div
+                class="hover:bg-gray-100 items-center px-5 py-3 space-x-6 bg-white rounded-md cursor-pointer relative flex">
+
+                <!-- img -->
+                <div
+                  class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
+                  style="width: 48px; height: 48px"
+                >
+                  <span
+                    class="bg-white font-medium flex items-center justify-center w-full h-full text-2xl uppercase"
+                  >
+                    <img
+                      src="./img/icons/icons8-company-48-yellow.png"
+                      alt="companyLogo"
+                      class="block w-full"
+                      loading="lazy"
+                      width="48"
+                      height="48"
+                    />
+                  </span>
+                </div>
+              
+                <!-- job info div -->
+                <div class="">
+                  <!-- job title, company name, location Div -->
+                  <div class="">
+                    <a
+                      href="#"
+                      class="font-medium text-lg text-black whitespace-pre-wrap"
+                      >UI/UX Designer</a
+                    >
+                    <!-- Company Name -->
+                    <p class="font-normal mb-1 text-gray-500">AAA</p>
+
+                    <!-- location -->
+                    <div class="flex items-center space-x-4 mb-1">
+                      <span class="">
+                        <a
+                          href="#"
+                          class="px-2 py-1 text-xs uppercase flex inline-flex items-center font-medium md:rounded-sm rounded-xl whitespace-pre-line bg-opacity-10 bg-gray-300 text-gray-600"
+                        >
+                          <img
+                            src="./img/icons/icons8-global-50.png"
+                            alt=""
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                            class="mr-2"
+                          />
+                          <p>Anywhere</p>
+                        </a>
+                      </span>
+                    </div>
+
+                  </div>
+
+                  <!-- skill icons div -->
+                  <div class="flex flex-wrap mb-1 mr-1 flex-grow">
+                    <span class="relative inline-block mb-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Fullstack
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        React
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Mango DB
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Node JS
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Type Script
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Featured Jobs 3 -->
+              <div
+                class="hover:bg-gray-100 items-center px-5 py-3 space-x-6 bg-white rounded-md cursor-pointer relative flex">
+
+                <!-- img -->
+                <div
+                  class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
+                  style="width: 48px; height: 48px"
+                >
+                  <span
+                    class="bg-white font-medium flex items-center justify-center w-full h-full text-2xl uppercase"
+                  >
+                    <img
+                      src="./img/icons/icons8-company-48-yellow.png"
+                      alt="companyLogo"
+                      class="block w-full"
+                      loading="lazy"
+                      width="48"
+                      height="48"
+                    />
+                  </span>
+                </div>
+              
+                <!-- job info div -->
+                <div class="">
+                  <!-- job title, company name, location Div -->
+                  <div class="">
+                    <a
+                      href="#"
+                      class="font-medium text-lg text-black whitespace-pre-wrap"
+                      >UI/UX Designer</a
+                    >
+                    <!-- Company Name -->
+                    <p class="font-normal mb-1 text-gray-500">AAA</p>
+
+                    <!-- location -->
+                    <div class="flex items-center space-x-4 mb-1">
+                      <span class="">
+                        <a
+                          href="#"
+                          class="px-2 py-1 text-xs uppercase flex inline-flex items-center font-medium md:rounded-sm rounded-xl whitespace-pre-line bg-opacity-10 bg-gray-300 text-gray-600"
+                        >
+                          <img
+                            src="./img/icons/icons8-global-50.png"
+                            alt=""
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                            class="mr-2"
+                          />
+                          <p>Anywhere</p>
+                        </a>
+                      </span>
+                    </div>
+
+                  </div>
+
+                  <!-- skill icons div -->
+                  <div class="flex flex-wrap mb-1 mr-1 flex-grow">
+                    <span class="relative inline-block mb-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Fullstack
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        React
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Mango DB
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Node JS
+                      </a>
+                    </span>
+                    <span class="relative inline-block mb-1 mx-1" aria-label="">
+                      <a
+                        href="#"
+                        class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
+                      >
+                        Type Script
+                      </a>
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="py-10 text-white bg-gray-700">
+      <div
+        class="container grid grid-cols-12 px-4 mx-auto md:gap-x-8 justify-between space-y-8"
+      >
+        <!-- LOGO -->
+        <div class="col-span-12">
+          <a href="#" class="flex items-center">
+            <img
+              src="./img/icons/icons8-startup-50.png"
+              alt="companyLogo"
+              class="mr-1"
+            />
+            <p class="text-2xl font-bold">UpAsia</p>
+          </a>
+        </div>
+
+        <div class="md:col-span-4 col-span-12">
+          <div class="md:block hidden mb-8">
+            <p class="font-bold text-lg mb-5">About UpAsia</p>
+            <p class="lead mb-5 text-opacity-75">
+              UpAsia is a job board for innovative workers and people wish to
+              work in fast growing startups in Asia. Browse thousands of startup
+              job listings.
+            </p>
+          </div>
+
+          <div class="">
+            <p class="mb-5 font-bold text-lg">Explore</p>
+            <ul>
+              <li><a href="">Home</a></li>
+              <li><a href="">Startup Jobs</a></li>
+              <li><a href="">Startup Hiring</a></li>
+              <li><a href="">Post a job</a></li>
+              <li><a href="">Startup News</a></li>
+              <li><a href="">Company and Team</a></li>
+              <li><a href="">Contact</a></li>
+              <li><a href="">Terms of Service</a></li>
+              <li><a href="">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="md:col-start-6 md:col-span-4 col-span-12">
+          <p class="font-bold text-lg">Job categories</p>
+          <ul>
+            <li><a href="">Admin and Assistants</a></li>
+            <li><a href="">Business development and Sales</a></li>
+            <li><a href="">Blockchain and Crypto</a></li>
+            <li><a href="">Customer Service</a></li>
+            <li><a href="">Data</a></li>
+            <li><a href="">Design</a></li>
+            <li><a href="">Finance</a></li>
+            <li><a href="">Human Resources</a></li>
+            <li><a href="">Legal</a></li>
+            <li><a href="">Marketing</a></li>
+            <li><a href="">operations</a></li>
+            <li><a href="">Product</a></li>
+            <li><a href="">Software and Development</a></li>
+            <li><a href="">other jobs</a></li>
+            <li><a href="">All jobs</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3 col-span-12">
+          <div class="mb-8">
+            <p class="font-bold text-lg">Sponsored</p>
+            <a>
+              <img src="" alt="" />
+            </a>
+            <a>
+              <img src="" alt="" />
+              <p>xxx</p>
+            </a>
+          </div>
+
+          <div>
+            <ul class="flex space-between">
+              <li>
+                <a href="#"
+                  ><img
+                    src="./img/icons/icons8-linkedin-circled-48.png"
+                    alt="linkedin logo"
+                /></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="./img/icons/icons8-instagram-48.png"
+                    alt="instagram logo"
+                /></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><img src="./img/icons/icons8-facebook-48.png" alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><img src="./img/icons/icons8-x-48.png" alt="x logo"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-span-12">
+          <p>
+            © 2025 UpAsia | XXX limited company | all rights reserved |
+            <a target="_blank" href="https://icons8.com/icon/132/search"
+              >Search</a
+            >
+            icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
