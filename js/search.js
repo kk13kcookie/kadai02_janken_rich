@@ -96,7 +96,7 @@ $(document).ready(function () {
         }
         break;
 
-      case 38: // うえ矢印
+      case 38: // 上矢印
         e.preventDefault();
         if ($selected.length) {
           // 前の予測候補を選択
