@@ -166,13 +166,15 @@
               Browse thousands of startup job listings and meet with an innovate
               startup in Asia.
             </p>
+
+            <!-- 検索バー -->
             <form
               class="w-full md:space-x-4 md:items-center md:flex-row flex flex-col items-stretch"
               action="."
               id="job-search-form"
               role="search"
             >
-              <div role="combobox" class="flex-grow">
+              <div role="combobox" class="flex-grow relative">
                 <label
                   class="cursor-text flex flex-grow items-center p-3 space-x-2 bg-white border border-gray-500 border-solid rounded-t-md rounded-b-none md:rounded-b-md"
                 >
@@ -191,6 +193,10 @@
                     placeholder="e.g. Job title, keywords, or company"
                   />
                 </label>
+                <!-- 検索バードロップダウン候補 -->
+                <div id="prediction-dropdown" class="absolute w-full bg-white border border-gray-300 rounded-b-md shadow-lg z-10 hidden max-h-64 overflow-y-auto">
+                  <!-- 検索結果ここに -->
+                </div>
               </div>
 
               <label
@@ -1498,5 +1504,6 @@
     </footer>
 
     <script src="./js/main.js"></script>
+    <script src="./js/search.js"></script>
   </body>
 </html>
