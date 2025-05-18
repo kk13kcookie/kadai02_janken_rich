@@ -78,7 +78,7 @@ $(document).ready(function () {
     // 予測候補が表示されていない場合は何もしない
     if (!$dropdown.is(":visible")) return;
 
-    const $selected = $dropdown.find(".bg-gray-100");
+    const $selected = $dropdown.find(".bg-gray-500");
 
     switch (e.which) {
       case 40: //下矢印
@@ -87,12 +87,12 @@ $(document).ready(function () {
           // 次の予測候補を選択
           const $next = $selected.next();
           if ($next.length) {
-            $selected.removeClass("bg-gray-100");
-            $next.addClass("bg-gray-100");
+            $selected.removeClass("bg-gray-500");
+            $next.addClass("bg-gray-500");
           }
         } else {
           // 最初の予測候補を選択
-          $dropdown.children().first().addClass("bg-gray-100");
+          $dropdown.children().first().addClass("bg-gray-500");
         }
         break;
 
@@ -102,12 +102,12 @@ $(document).ready(function () {
           // 前の予測候補を選択
           const $prev = $selected.prev();
           if ($prev.length) {
-            $selected.removeClass("bg-gray-100");
-            prev.addClass("bg-gray-100");
+            $selected.removeClass("bg-gray-500");
+            prev.addClass("bg-gray-500");
           }
         } else {
           // 最後の予測候補を選択
-          $dropdown.children().last().addClass("bg-gray-100");
+          $dropdown.children().last().addClass("bg-gray-500");
         }
         break;
 
@@ -161,11 +161,11 @@ $(document).ready(function () {
         $dropdown.append(
           $("<div>")
             .addClass(
-              "py-2 px-4 cursor-pointer hover:bg-gray-100 border-b border-gray-100 last:border-b-0"
+              "py-2 px-4 cursor-pointer hover:bg-gray-300 border-b border-gray-100 last:border-b-0"
             )
             .text(prediction)
             .on("click", function () {
-              $selectPrediction(prediction);
+              selectPrediction(prediction);
             })
         );
       });
@@ -177,7 +177,7 @@ $(document).ready(function () {
 
   // 予測候補を非表示にする関数
   function hidePredictions() {
-    $dropdown.hie().empty();
+    $dropdown.hide().empty();
   }
 
   // 予測候補を選択する関数
