@@ -9,16 +9,18 @@
   </head>
 
   <body>
-    <header
-      id="header"
-      class="bg-white shadow-sm sticky top-0 z-50 p-4"
-    >
+    <header id="header" class="bg-white shadow-sm sticky top-0 z-50 p-4">
       <div
         class="container grid grid-cols-12 h-[80px] px-4 mx-auto items-center md:text-xl text-base"
       >
         <div class="col-span-3">
-          <a href="#" class="flex items-center">
-            <img src="./img/icons/icons8-startup-50.png" alt="company Logo" width="50" height="50">
+          <a href="/" class="flex items-center">
+            <img
+              src="./img/icons/icons8-startup-50.png"
+              alt="company Logo"
+              width="50"
+              height="50"
+            />
             <span class="text-2xl">UpAsia</span>
           </a>
         </div>
@@ -31,7 +33,7 @@
           <li><a href="#">Startup News</a></li>
           <li>
             <a
-              href="./jobs.html"
+              href="/jobs.html"
               class="focus:outline-none items-center flex justify-center md:px-6 md:py-2 border-2 border-solid rounded-md font-normal text-gray-100 border-gray-100 bg-gray-400 hover:text-white hover:bg-gray-300 text-gray-800"
               >Browse Jobs</a
             >
@@ -48,74 +50,113 @@
         <!--hum menu icon -->
         <div class="lg:hidden col-span-1 col-start-12">
           <button id="button-open" type="button" class="focus:outline-none">
-            <img src="./img/icons/icons8-menu-50.png" alt="" class="justify-end">
+            <img
+              src="./img/icons/icons8-menu-50.png"
+              alt=""
+              class="justify-end"
+            />
           </button>
         </div>
       </div>
     </header>
 
     <!-- hum menu opened -->
-    <div id="mobile-menu" class="lg:hidden fixed inset-0 z-50 bg-white hidden" style="transform: translate3d(0px, 0px, 0px);">
+    <div
+      id="mobile-menu"
+      class="lg:hidden fixed inset-0 z-50 bg-white hidden"
+      style="transform: translate3d(0px, 0px, 0px)"
+    >
       <div class="flex flex-col flex-grow w-full h-full">
         <div class="flex items-center justify-between p-4 shadow-sm">
-          <a href="#" class="text-gray-700 flex relative">
-            <img src="./img/icons/icons8-startup-50.png" alt="company logo">
+          <a href="/" class="text-gray-700 flex relative">
+            <img src="./img/icons/icons8-startup-50.png" alt="company logo" />
             <span class="relative top-3">UpAsia</span>
           </a>
-          <button id="button-close" type="button" class="focus:outline-none items-center flex justify-center">
-            <img src="./img/icons/icons8-cross-50.png" alt="close menu" width="50" height="50">
+          <button
+            id="button-close"
+            type="button"
+            class="focus:outline-none items-center flex justify-center"
+          >
+            <img
+              src="./img/icons/icons8-cross-50.png"
+              alt="close menu"
+              width="50"
+              height="50"
+            />
           </button>
         </div>
 
         <div class="flex-grow overflow-y-auto text-xl">
-          <ul class="px-4 text-base ">
+          <ul class="px-4 text-base">
             <li>
-              <a href="./jobs.html" class="hum-links py-4 block border-b border-gray-300 border-solid">
+              <a
+                href="./jobs.html"
+                class="hum-links py-4 block border-b border-gray-300 border-solid"
+              >
                 Startup Jobs
               </a>
             </li>
             <li>
-              <a href="#" class="hum-links py-4 block border-b border-gray-300 border-solid">
+              <a
+                href="#"
+                class="hum-links py-4 block border-b border-gray-300 border-solid"
+              >
                 Startup Hiring
               </a>
             </li>
             <li>
-              <a href="#" class="hum-links py-4 block border-b border-gray-300 border-solid">
+              <a
+                href="/startupNews.html"
+                class="hum-links py-4 block border-b border-gray-300 border-solid"
+              >
                 Startup News
               </a>
             </li>
             <li>
-              <a href="#" class="hum-links py-4 block border-b border-gray-300 border-solid">
+              <a
+                href="#"
+                class="hum-links py-4 block border-b border-gray-300 border-solid"
+              >
                 Company
               </a>
             </li>
             <li>
-              <a href="#" class="hum-links py-4 block border-b border-gray-300 border-solid">
+              <a
+                href="#"
+                class="hum-links py-4 block border-b border-gray-300 border-solid"
+              >
                 Contact
               </a>
             </li>
-
           </ul>
         </div>
 
         <div class="p-4 space-y-4">
-          <a href="#" class="hum-links focus:outline-none items-center flex justify-center bg-red-500 hover:bg-red-400 text-white md:px-6 md:py-2 md:text-md px-8  py-2 border-2 border-transparent border-solid rounded-md font-400 text-sm">
+          <a
+            href="#"
+            class="hum-links focus:outline-none items-center flex justify-center bg-red-500 hover:bg-red-400 text-white md:px-6 md:py-2 md:text-md px-8 py-2 border-2 border-transparent border-solid rounded-md font-400 text-sm"
+          >
             Post a job
           </a>
-          <a href="#" class="hum-links focus:outline-none items-center flex justify-center bg-white hover:bg-black text-black hover:text-white md:px-6 md:py-2 md:text-md px-8  py-2 border-2 border-black border-solid rounded-md font-400 text-sm">
+          <a
+            href="#"
+            class="hum-links focus:outline-none items-center flex justify-center bg-white hover:bg-black text-black hover:text-white md:px-6 md:py-2 md:text-md px-8 py-2 border-2 border-black border-solid rounded-md font-400 text-sm"
+          >
             Employers
           </a>
-
         </div>
-
       </div>
     </div>
 
     <main class="overflow-x-hidden">
       <div class="bg-gray-100 py-4">
-        <div class="container grid grid-cols-12 px-4 mx-auto md:py-16 py-8 space-y-8">
+        <div
+          class="container grid grid-cols-12 px-4 mx-auto md:py-16 py-8 space-y-8"
+        >
           <!-- Startup Jobs in Asia -->
-          <div class="col-span-12 flex flex-col space-y-4 md:flex-row md:justify-between md:items-center md:space-y-0 md:mb-16">
+          <div
+            class="col-span-12 flex flex-col space-y-4 md:flex-row md:justify-between md:items-center md:space-y-0 md:mb-16"
+          >
             <p class="md:text-4xl text-2xl font-bold text-black">
               Startup Jobs in Asia
             </p>
@@ -186,18 +227,15 @@
                 class="text-gray absolute top-1/3 right-3 pointer-events-none"
                 width="24"
                 height="24"
-                />
-              
+              />
             </label>
             <button
               class="items-center justify-center bg-blue-500 hover:bg-blue-400 md:inline-flex hidden px-6 py-3 text-white rounded-md"
               type="submit"
             >
               <span>Search</span>
-             </button>
-
+            </button>
           </form>
-   
 
           <div class="col-span-12 space-y-3">
             <!-- TopResume -->
@@ -244,7 +282,7 @@
             >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
-                style="width: 48px; height: 48px;"
+                style="width: 48px; height: 48px"
               >
                 <span
                   class="bg-white font-medium flex items-center justify-center w-full h-full text-2xl uppercase"
@@ -259,7 +297,6 @@
                   />
                 </span>
               </div>
-
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
@@ -379,7 +416,7 @@
             >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
-                style="width: 48px; height: 48px;"
+                style="width: 48px; height: 48px"
               >
                 <span
                   class="bg-white font-medium flex items-center justify-center w-full h-full text-2xl uppercase"
@@ -394,7 +431,6 @@
                   />
                 </span>
               </div>
-
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
@@ -514,7 +550,7 @@
             >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
-                style="width: 48px; height: 48px;"
+                style="width: 48px; height: 48px"
               >
                 <span
                   class="bg-white font-medium flex items-center justify-center w-full h-full text-2xl uppercase"
@@ -529,7 +565,6 @@
                   />
                 </span>
               </div>
-
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
@@ -649,7 +684,7 @@
             >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
-                style="width: 48px; height: 48px;"
+                style="width: 48px; height: 48px"
               >
                 <span
                   class="bg-white font-medium flex items-center justify-center w-full h-full text-2xl uppercase"
@@ -664,7 +699,6 @@
                   />
                 </span>
               </div>
-
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
@@ -784,7 +818,7 @@
             >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
-                style="width: 48px; height: 48px;"
+                style="width: 48px; height: 48px"
               >
                 <span
                   class="bg-white font-medium flex items-center justify-center w-full h-full text-2xl uppercase"
@@ -799,7 +833,6 @@
                   />
                 </span>
               </div>
-
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
@@ -919,7 +952,7 @@
             >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
-                style="width: 48px; height: 48px;"
+                style="width: 48px; height: 48px"
               >
                 <span
                   class="bg-white font-medium flex items-center justify-center w-full h-full text-2xl uppercase"
@@ -934,7 +967,6 @@
                   />
                 </span>
               </div>
-
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
@@ -1054,7 +1086,7 @@
             >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
-                style="width: 48px; height: 48px;"
+                style="width: 48px; height: 48px"
               >
                 <span
                   class="bg-white font-medium flex items-center justify-center w-full h-full text-2xl uppercase"
@@ -1069,7 +1101,6 @@
                   />
                 </span>
               </div>
-
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
@@ -1189,7 +1220,7 @@
             >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
-                style="width: 48px; height: 48px;"
+                style="width: 48px; height: 48px"
               >
                 <span
                   class="bg-white font-medium flex items-center justify-center w-full h-full text-2xl uppercase"
@@ -1204,7 +1235,6 @@
                   />
                 </span>
               </div>
-
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
@@ -1317,7 +1347,7 @@
                 11h
               </span>
             </div>
-  
+
             <!-- Browse all Jobs -->
             <div class="col-span-12 flex md:justify-end mt-8 font-medium">
               <a href="#" class="flex hover:opacity-50">
@@ -1334,25 +1364,39 @@
 
           <div class="flex justify-center col-span-12 mt-4">
             <div class="flex items-stretch space-x-3">
-              <button disabled type="button" class="focus:outline-none items-center flex justify-center opacity-75 cursor-not-allowed p-1 px-2 uppercase select-none rounded-sm hover:bg-gray-400 text-gray-100 bg-gray-500">
+              <button
+                disabled
+                type="button"
+                class="focus:outline-none items-center flex justify-center opacity-75 cursor-not-allowed p-1 px-2 uppercase select-none rounded-sm hover:bg-gray-400 text-gray-100 bg-gray-500"
+              >
                 Prev
               </button>
-              <a href="#" class="focus:outline-none items-center flex justify-center p-1 px-2 uppercase select-none rounded-sm hover:bg-gray-500 text-gray-700">
+              <a
+                href="#"
+                class="focus:outline-none items-center flex justify-center p-1 px-2 uppercase select-none rounded-sm hover:bg-gray-500 text-gray-700"
+              >
                 1
               </a>
-              <a href="#" class="focus:outline-none items-center flex justify-center p-1 px-2 uppercase select-none rounded-sm hover:bg-gray-500 text-gray-700">
+              <a
+                href="#"
+                class="focus:outline-none items-center flex justify-center p-1 px-2 uppercase select-none rounded-sm hover:bg-gray-500 text-gray-700"
+              >
                 2
               </a>
-              <a href="#" class="focus:outline-none items-center flex justify-center p-1 px-2 uppercase select-none rounded-sm hover:bg-gray-500 text-gray-700">
+              <a
+                href="#"
+                class="focus:outline-none items-center flex justify-center p-1 px-2 uppercase select-none rounded-sm hover:bg-gray-500 text-gray-700"
+              >
                 3
               </a>
-              <a href="#" class="focus:outline-none items-center flex justify-center p-1 px-2 uppercase select-none rounded-sm hover:bg-gray-400 text-gray-100 bg-gray-500">
+              <a
+                href="#"
+                class="focus:outline-none items-center flex justify-center p-1 px-2 uppercase select-none rounded-sm hover:bg-gray-400 text-gray-100 bg-gray-500"
+              >
                 Next
               </a>
             </div>
-
           </div>
-
         </div>
       </div>
     </main>
@@ -1378,9 +1422,9 @@
           <div class="md:block hidden mb-8">
             <p class="font-bold text-lg mb-5">About UpAsia</p>
             <p class="lead mb-5 text-opacity-75">
-              UpAsia is a job board for innovative workers and people wish
-              to work in fast growing startups in Asia. Browse thousands of
-              startup job listings.
+              UpAsia is a job board for innovative workers and people wish to
+              work in fast growing startups in Asia. Browse thousands of startup
+              job listings.
             </p>
           </div>
 
