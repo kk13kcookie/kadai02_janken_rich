@@ -62,12 +62,17 @@ $(document).ready(function () {
 
   // 検索関連要素
   const $searchInput = $("#job-search-input");
+  const $searchForm = $("#job-search-form");
+  const $searchResultDisplay = $("#search-query-display");
+  const $searchResultCount = $("#Search-result-count");
 
+  // 初期状態では検索結果表示を非表示
+  if ($searchResultDisplay.length > 0 && !isSearchPage()) {
+    $searchResultDisplay.hide();
+  }
+
+  // 予測ドロップダウンの作成または取得
   let $dropdown = $("#prediction-dropdown");
-  console.log("Initial dropdown element found:", $dropdown.length > 0);
-
-  // 検索入力フィールドに予測ドロップダウンが存在することを確認
-  // 存在しない場合は作成
   if ($dropdown.length === 0) {
     console.log("Creating prediction dropdown");
 
@@ -82,37 +87,47 @@ $(document).ready(function () {
     console.log("Created dropdown element:", $dropdown.length > 0);
   }
 
+  // 検索ボタンを常に表示するように修正
+  const $searchButton = $searchForm.find("button[type='submit']");
+  $searchButton
+    .removeClass("md:inline-flex hidden")
+    .addClass("w-full md:w-auto flex justify-center mt-2 md:mt-0");
+
+  // 検索ページかどうかを判定する関数
+  function isSearchPage() {
+    return (
+      window.location.search.includes("?q=") ||
+      window.location.pathname.includes("jobs.html")
+    );
+  }
+
   // URLからクエリパラメータを取得する関数
   function getQueryParam(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
   }
 
-  // Jobs.htmlでの検索結果表示
-  // 現在のページがjobs.htmlの場合、URLから検索クエリを取得して表示
-  if (window.location.pathname.includes("jobs.html")) {
+  // 検索ページの場合は処理を実行
+  if (isSearchPage()) {
     const searchQuery = getQueryParam("q");
     if (searchQuery) {
       // 検索クエリをデコードして入力欄に設定
       $searchInput.val(decodeURIComponent(searchQuery));
 
-      // 検索クエリを検索バーの下に表示するための要素を追加
-      // 要素がまだ存在しない場合にのみ追加
-      if ($("#search-query-display").length === 0) {
-        const $searchDisplay = $(
-          '<div id="search-query-display" class="mt-4 mb-2 p-2 bg-gray-100 rounded-md"></div>'
-        );
-        const $searchTitle = $(
-          '<h2 class="text-xl font-semibold">Search Result: <span class="text-blue-600"></span></h2>'
-        );
-        $searchTitle.find("span").text(decodeURIComponent(searchQuery));
-        $searchDisplay.append($searchTitle);
+      // 検索結果を表示
+      if ($searchResultDisplay.length > 0) {
+        $searchResultDisplay.show();
 
-        //検索クエリを検索バーの下に表示
-        $(".col-span-12.space-y-3").before($searchDisplay);
-      } else {
-        // 既に存在する場合は内容を更新
-        $("#search-query-display span").text(decodeURIComponent(searchQuery));
+        // 検索語をスキルタグと同じスタイルで表示
+        const $searchTerm = $searchResultDisplay.find("#search-term span");
+        if ($searchTerm.length > 0) {
+          $searchTerm.text(decodeURIComponent(searchQuery));
+        } else {
+          // 古いスタイルのページであれば、単純にテキストを設定
+          $searchResultDisplay
+            .find("span")
+            .text(decodeURIComponent(searchQuery));
+        }
       }
 
       // 検索クエリに基づいてJob postingをフィルタリング
@@ -125,10 +140,7 @@ $(document).ready(function () {
     if (!query) return; //クエリがない場合は何もしない
 
     console.log("Filtering job postings for:", query);
-
     query = query.toLowerCase();
-    let matchFound = false;
-    let matchCount = 0;
 
     // すべてのjob postingを取得して検索
     const $jobCards = $('.col-span-12.space-y-3 > div[class*="lg:flex"]');
@@ -136,13 +148,13 @@ $(document).ready(function () {
 
     // 各求人カードの内容を調査（デバッグ用）
     if ($jobCards.length === 0) {
-      console.log("No job cards found! DOM structure:");
-      console.log($(".col-span-12.space-y-3").html());
-    } else {
-      // 最初のカードのHTML構造を出力
-      console.log("First job card structure:");
-      console.log($jobCards.first().html());
+      console.log(
+        "No job cards found! DOM structure may be different than expected"
+      );
+      return;
     }
+
+    let matchCount = 0;
 
     // すべてのjob postingを取得して検索
     $jobCards.each(function () {
@@ -166,7 +178,7 @@ $(document).ready(function () {
       ) {
         // マッチした場合は表示してハイライト
         $post.show();
-        matchFound = true;
+        matchCount++;
 
         // マッチしたテキストをハイライト
         highlightText($post, query);
@@ -176,12 +188,40 @@ $(document).ready(function () {
       }
     });
 
+    // 検索結果数を表示
+    if ($searchResultCount.length > 0) {
+      $searchResultCount.text(matchCount + " results found");
+    }
+
     // マッチする結果がない場合のメッセージ
-    if (!matchFound) {
+    if (matchCount === 0) {
+      showNoResultsMessage(query);
+    }
+  }
+
+  // 検索結果がない場合のメッセージを表示する関数
+  function showNoResultsMessage(query) {
+    // テンプレート要素を使用
+    const $template = $("#no-result-template");
+
+    if ($template.length > 0) {
+      // テンプレートからコンテンツを複製
+      const $noResults = $($template.html());
+      $noResults.find(".query-text").text(query);
+
+      // 既存の「検索結果なし」メッセージを削除
+      $(".col-span-12.space-y-3 > div.p-8.bg-white").remove();
+
+      // 新しいメッセージを挿入
+      $(".col-span-12.space-y-3").prepend($noResults);
+    } else {
+      // テンプレートがない場合は単純なメッセージを表示
       const $noResults = $(
-        '<div class="p-4 bg-white rounded-md shadow-sm text-center my-4"><p class="text-gray-600">No Search Result matches with「' +
+        '<div class="p-8 bg-white rounded-lg shadow-sm text-center my-4">' +
+          '<p class="text-gray-600">No search results match "' +
           query +
-          "」</p></div>"
+          '"</p>' +
+          "</div>"
       );
       $(".col-span-12.space-y-3").prepend($noResults);
     }
@@ -224,7 +264,7 @@ $(document).ready(function () {
     // 予測候補が表示されていない場合は何もしない
     if (!$dropdown.is(":visible")) return;
 
-    const $selected = $dropdown.find(".bg-gray-500");
+    const $selected = $dropdown.find(".bg-gray-200");
 
     switch (e.which) {
       case 40: //下矢印
@@ -233,12 +273,12 @@ $(document).ready(function () {
           // 次の予測候補を選択
           const $next = $selected.next();
           if ($next.length) {
-            $selected.removeClass("bg-gray-500");
-            $next.addClass("bg-gray-500");
+            $selected.removeClass("bg-gray-200");
+            $next.addClass("bg-gray-200");
           }
         } else {
           // 最初の予測候補を選択
-          $dropdown.children().first().addClass("bg-gray-500");
+          $dropdown.children().first().addClass("bg-gray-200");
         }
         break;
 
@@ -248,12 +288,12 @@ $(document).ready(function () {
           // 前の予測候補を選択
           const $prev = $selected.prev();
           if ($prev.length) {
-            $selected.removeClass("bg-gray-500");
-            $prev.addClass("bg-gray-500");
+            $selected.removeClass("bg-gray-200");
+            $prev.addClass("bg-gray-200");
           }
         } else {
           // 最後の予測候補を選択
-          $dropdown.children().last().addClass("bg-gray-500");
+          $dropdown.children().last().addClass("bg-gray-200");
         }
         break;
 
@@ -278,7 +318,7 @@ $(document).ready(function () {
   });
 
   // 検索フォームの送信
-  $("#job-search-form").on("submit", function (e) {
+  $searchForm.on("submit", function (e) {
     e.preventDefault(); // フォーム送信をいったん防止
 
     const searchText = $searchInput.val().trim();
@@ -288,8 +328,13 @@ $(document).ready(function () {
     }
 
     // 検索クエリをエンコードしてjobs.htmlに遷移
-    window.location.href = "jobs.html?q=" + encodeURIComponent(searchText);
-
+    const currentPath = window.location.pathname;
+    // 既にjobs.htmlにいる場合はページをリロード、そうでなければjobs.htmlに遷移
+    if (currentPath.includes("jobs.html")) {
+      window.location.href = "?q=" + encodeURIComponent(searchText);
+    } else {
+      window.location.href = "jobs.html?q=" + encodeURIComponent(searchText);
+    }
     return false; // 通常のフォーム送信を防止
   });
 
@@ -310,7 +355,7 @@ $(document).ready(function () {
         $dropdown.append(
           $("<div>")
             .addClass(
-              "py-2 px-4 cursor-pointer hover:bg-gray-500 border-b border-gray-100 last:border-b-0"
+              "py-2 px-4 cursor-pointer hover:bg-gray-200 border-b border-gray-100 last:border-b-0"
             )
             .text(prediction)
             .on("click", function () {
@@ -334,21 +379,16 @@ $(document).ready(function () {
     console.log("Prediction Selected:", prediction);
     $searchInput.val(prediction);
     hidePredictions();
+
     // フォーカスを戻す
     $searchInput.focus();
 
-    // Enterキーを押したのと同じ効果を与える（フォーム送信）
-    $("#job-search-form").submit();
+    // フォーム送信
+    $searchForm.submit();
   }
 
   // 正規表現のエスケープ処理
   function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
-
-  // モバイル用の検索ボタンの表示 - 非表示だったのを表示するように変更
-  const $searchButton = $("#job-search-form button[type='submit']");
-  $searchButton
-    .removeClass("md:inline-flex hidden")
-    .addClass("w-full md:w-auto flex justify-center mt-2 md:mt-0");
 });

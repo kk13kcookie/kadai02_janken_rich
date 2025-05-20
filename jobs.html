@@ -240,47 +240,22 @@
           <!-- Search Result 検索結果表示 -->
           <div
             id="search-query-display"
-            class="mt-4 mb-6 px-4 py-3 bg-gray-100 rounded-lg shadow-sm"
+            class="col-span-12 mt-4 mb-6 px-4 py-3 bg-gray-100 rounded-lg shadow-sm"
           >
-            <div
-              class="flex flex-col md:flex-row md:items-center md:justify-between"
-            >
-              <h2 class="text-xl font-semibold">
-                Search Result:
-                <span text-blue-600 font-bold
-                  ><!--search result shown here--></span
+            <div class="flex flex-wrap items-center">
+              <h2 class="text-xl font-semibold mr-1">Search Result:</h2>
+              <span id="search-term" class="relative inline-block mb-1 mt-1">
+                <span
+                  class="border-gray-500 px-3 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap text-gray-500"
                 >
-              </h2>
-              <div class="mt-2 md:mt-0">
+                  <!--search result shown here-->
+                </span>
+              </span>
+              <div class="ml-auto">
                 <span class="text-sm text-gray-600" id="Search-result-count">
                   <!--search result shown here-->
                 </span>
               </div>
-            </div>
-
-            <!-- 追加のフィルタリングオプション（オプション） -->
-            <div class="mt-3 flex flex-wrap gap-2">
-              <span class="text-sm text-gray-600">絞り込み: </span>
-              <button
-                class="text-sm px-2 py-1 border border-gray-300 rounded-md hover:bg-blue-50 hover:border-blue-300"
-              >
-                All
-              </button>
-              <button
-                class="text-sm px-2 py-1 border border-gray-300 rounded-md hover:bg-blue-50 hover:border-blue-300"
-              >
-                Job categories
-              </button>
-              <button
-                class="text-sm px-2 py-1 border border-gray-300 rounded-md hover:bg-blue-50 hover:border-blue-300"
-              >
-                Skills
-              </button>
-              <button
-                class="text-sm px-2 py-1 border border-gray-300 rounded-md hover:bg-blue-50 hover:border-blue-300"
-              >
-                Company
-              </button>
             </div>
           </div>
 
