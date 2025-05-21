@@ -172,6 +172,7 @@
               class="w-full md:space-x-4 md:items-center md:flex-row flex flex-col items-stretch"
               action="."
               id="job-search-form"
+              data-component="search-form"
               role="search"
             >
               <div role="combobox" class="flex-grow relative">
@@ -189,13 +190,15 @@
                     type="text"
                     name=""
                     id="job-search-input"
+                    data-component="search-input"
                     class="focus:outline-none flex-grow text-gray-800 placeholder-gray-500"
                     placeholder="e.g. Job title, keywords, or company"
                   />
                 </label>
-                <!-- 検索バードロップダウン候補 -->
+                <!-- 検索バー ドロップダウン候補 -->
                 <div
                   id="prediction-dropdown"
+                  data-component="prediction-dropdown"
                   class="absolute w-full bg-white border border-gray-300 rounded-b-md shadow-lg z-10 hidden max-h-64 overflow-y-auto text-black"
                 >
                   <!-- 検索結果ここに -->
@@ -205,9 +208,11 @@
               <label
                 class="flex bg-white border border-gray-500 border-solid rounded-md relative md:rounded-t-md rounded-t-none"
               >
+                <!-- カテゴリー選択 -->
                 <select
                   name="category"
                   id="job-search-category"
+                  data-component="search-category"
                   class="focus:outline-none flex-grow p-3 pr-8 text-gray-500 placeholder-gray-500 bg-white rounded-md appearance-none"
                 >
                   <option selected value>All categories</option>
@@ -234,9 +239,11 @@
                 />
               </label>
 
+              <!-- 検索ボタン -->
               <button
                 class="items-center justify-center bg-blue-500 hover:bg-blue-400 md:inline-flex hidden px-6 py-3 text-white rounded-md"
                 type="submit"
+                data-component="search-button"
               >
                 <span>Search</span>
               </button>
@@ -270,7 +277,9 @@
             </a>
           </div>
 
-          <div class="col-span-12 space-y-3">
+          <!-- Job Card Container -->
+          <div class="col-span-12 space-y-3" data-component="job-card-container">
+            
             <!-- TopResume -->
             <a
               href="#"
@@ -312,7 +321,8 @@
             <!-- job posting 1 -->
             <div
               class="lg:flex hover:bg-gray-100 items-center px-5 py-3 lg:space-x-6 space-x-0 bg-white rounded-md cursor-pointer relative"
-            >
+              data-component="job-card"
+              >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
                 style="width: 48px; height: 48px"
@@ -335,15 +345,17 @@
                 <a
                   href="/jobExample.html"
                   class="font-medium text-lg text-black whitespace-pre-wrap"
+                  data-component="job-title"
                   >UI/UX Designer</a
                 >
-                <p class="font-normal mb-1 text-gray-500">AAA</p>
+                <p class="font-normal mb-1 text-gray-500" data-component="company-name">AAA</p>
                 <div class="flex items-center space-x-4 mb-1">
                   <span class="">
                     <a
                       href="#"
                       class="px-2 py-1 text-xs uppercase flex inline-flex items-center font-medium md:rounded-sm rounded-xl whitespace-pre-line bg-opacity-10 bg-gray-300 text-gray-600"
-                    >
+                      data-component="job-location"
+                      >
                       <img
                         src="./img/icons/icons8-global-50.png"
                         alt=""
@@ -358,13 +370,15 @@
                 </div>
               </div>
 
-              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden">
+              <!-- Job Badges (new, featured) -->
+              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden" data-component="job-badges">
                 <!-- new icon -->
                 <img
                   class="mr-2"
                   src="./img/icons/icons8-new-50.png"
                   alt="new job icon"
                   width="30"
+                  data-badge="new"
                 />
                 <!-- featured icon -->
                 <span>
@@ -373,17 +387,19 @@
                     alt="featured job icon"
                     class="mr-2"
                     width="30"
+                    data-badge="featured"
                   />
                 </span>
               </div>
 
               <!-- skill icons -->
-              <div class="flex flex-wrap mb-1 mr-1 flex-grow">
+              <div class="flex flex-wrap mb-1 mr-1 flex-grow" data-component="skill-tags">
                 <span class="relative inline-block mb-1" aria-label="">
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="fullstack"
+                    >
                     Fullstack
                   </a>
                 </span>
@@ -391,7 +407,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="react"
+                    >
                     React
                   </a>
                 </span>
@@ -399,7 +416,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="mongodb"
+                    >
                     Mango DB
                   </a>
                 </span>
@@ -407,7 +425,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="nodejs"
+                    >
                     Node JS
                   </a>
                 </span>
@@ -415,37 +434,42 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="typescript"
+                    >
                     Type Script
                   </a>
                 </span>
               </div>
 
               <div class="flex-shrink-0 mb-2 space-y-2" style="width: 200px">
-                <!-- job position icon -->
+                <!-- Job category/type  -->
                 <span aria-label="add to search" class="lg:inline-block hidden">
                   <a
                     href=""
                     class="border-transparent px-1 text-xs uppercase border-2 border-solid text-white font-medium bg-gray-500 rounded-sm flex-shrink-0 mr-1 mb-1 flex items-center"
-                  >
+                    data-component="job-category"
+                    >
                     Software Development
                   </a>
                 </span>
                 <!-- Salary -->
-                <div class="text-xs uppercase">yearly: $x - x USD</div>
+                <div class="text-xs uppercase" data-component="job-salary">yearly: $x - x USD</div>
               </div>
 
               <!-- time posted -->
               <span
                 class="font-medium bottom-3 right-3 absolute text-xs leading-none text-gray-400"
-              >
+                data-component="time-posted"
+                >
                 11h
               </span>
             </div>
+
             <!-- job posting 2 -->
             <div
               class="lg:flex hover:bg-gray-100 items-center px-5 py-3 lg:space-x-6 space-x-0 bg-white rounded-md cursor-pointer relative"
-            >
+              data-component="job-card"
+              >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
                 style="width: 48px; height: 48px"
@@ -466,17 +490,19 @@
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
-                  href="#"
+                  href="/jobExample.html"
                   class="font-medium text-lg text-black whitespace-pre-wrap"
+                  data-component="job-title"
                   >UI/UX Designer</a
                 >
-                <p class="font-normal mb-1 text-gray-500">AAA</p>
+                <p class="font-normal mb-1 text-gray-500" data-component="company-name">AAA</p>
                 <div class="flex items-center space-x-4 mb-1">
                   <span class="">
                     <a
                       href="#"
                       class="px-2 py-1 text-xs uppercase flex inline-flex items-center font-medium md:rounded-sm rounded-xl whitespace-pre-line bg-opacity-10 bg-gray-300 text-gray-600"
-                    >
+                      data-component="job-location"
+                      >
                       <img
                         src="./img/icons/icons8-global-50.png"
                         alt=""
@@ -491,13 +517,15 @@
                 </div>
               </div>
 
-              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden">
+              <!-- Job Badges (new, featured) -->
+              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden" data-component="job-badges">
                 <!-- new icon -->
                 <img
                   class="mr-2"
                   src="./img/icons/icons8-new-50.png"
                   alt="new job icon"
                   width="30"
+                  data-badge="new"
                 />
                 <!-- featured icon -->
                 <span>
@@ -506,17 +534,19 @@
                     alt="featured job icon"
                     class="mr-2"
                     width="30"
+                    data-badge="featured"
                   />
                 </span>
               </div>
 
               <!-- skill icons -->
-              <div class="flex flex-wrap mb-1 mr-1 flex-grow">
+              <div class="flex flex-wrap mb-1 mr-1 flex-grow" data-component="skill-tags">
                 <span class="relative inline-block mb-1" aria-label="">
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="fullstack"
+                    >
                     Fullstack
                   </a>
                 </span>
@@ -524,7 +554,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="react"
+                    >
                     React
                   </a>
                 </span>
@@ -532,7 +563,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="mongodb"
+                    >
                     Mango DB
                   </a>
                 </span>
@@ -540,7 +572,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="nodejs"
+                    >
                     Node JS
                   </a>
                 </span>
@@ -548,30 +581,33 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="typescript"
+                    >
                     Type Script
                   </a>
                 </span>
               </div>
 
               <div class="flex-shrink-0 mb-2 space-y-2" style="width: 200px">
-                <!-- job position icon -->
+                <!-- Job category/type  -->
                 <span aria-label="add to search" class="lg:inline-block hidden">
                   <a
                     href=""
                     class="border-transparent px-1 text-xs uppercase border-2 border-solid text-white font-medium bg-gray-500 rounded-sm flex-shrink-0 mr-1 mb-1 flex items-center"
-                  >
+                    data-component="job-category"
+                    >
                     Software Development
                   </a>
                 </span>
                 <!-- Salary -->
-                <div class="text-xs uppercase">yearly: $x - x USD</div>
+                <div class="text-xs uppercase" data-component="job-salary">yearly: $x - x USD</div>
               </div>
 
               <!-- time posted -->
               <span
                 class="font-medium bottom-3 right-3 absolute text-xs leading-none text-gray-400"
-              >
+                data-component="time-posted"
+                >
                 11h
               </span>
             </div>
@@ -579,7 +615,8 @@
             <!-- job posting 3 -->
             <div
               class="lg:flex hover:bg-gray-100 items-center px-5 py-3 lg:space-x-6 space-x-0 bg-white rounded-md cursor-pointer relative"
-            >
+              data-component="job-card"
+              >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
                 style="width: 48px; height: 48px"
@@ -600,17 +637,19 @@
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
-                  href="#"
+                  href="/jobExample.html"
                   class="font-medium text-lg text-black whitespace-pre-wrap"
+                  data-component="job-title"
                   >UI/UX Designer</a
                 >
-                <p class="font-normal mb-1 text-gray-500">AAA</p>
+                <p class="font-normal mb-1 text-gray-500" data-component="company-name">AAA</p>
                 <div class="flex items-center space-x-4 mb-1">
                   <span class="">
                     <a
                       href="#"
                       class="px-2 py-1 text-xs uppercase flex inline-flex items-center font-medium md:rounded-sm rounded-xl whitespace-pre-line bg-opacity-10 bg-gray-300 text-gray-600"
-                    >
+                      data-component="job-location"
+                      >
                       <img
                         src="./img/icons/icons8-global-50.png"
                         alt=""
@@ -625,13 +664,15 @@
                 </div>
               </div>
 
-              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden">
+              <!-- Job Badges (new, featured) -->
+              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden" data-component="job-badges">
                 <!-- new icon -->
                 <img
                   class="mr-2"
                   src="./img/icons/icons8-new-50.png"
                   alt="new job icon"
                   width="30"
+                  data-badge="new"
                 />
                 <!-- featured icon -->
                 <span>
@@ -640,17 +681,19 @@
                     alt="featured job icon"
                     class="mr-2"
                     width="30"
+                    data-badge="featured"
                   />
                 </span>
               </div>
 
               <!-- skill icons -->
-              <div class="flex flex-wrap mb-1 mr-1 flex-grow">
+              <div class="flex flex-wrap mb-1 mr-1 flex-grow" data-component="skill-tags">
                 <span class="relative inline-block mb-1" aria-label="">
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="fullstack"
+                    >
                     Fullstack
                   </a>
                 </span>
@@ -658,7 +701,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="react"
+                    >
                     React
                   </a>
                 </span>
@@ -666,7 +710,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="mongodb"
+                    >
                     Mango DB
                   </a>
                 </span>
@@ -674,7 +719,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="nodejs"
+                    >
                     Node JS
                   </a>
                 </span>
@@ -682,30 +728,33 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="typescript"
+                    >
                     Type Script
                   </a>
                 </span>
               </div>
 
               <div class="flex-shrink-0 mb-2 space-y-2" style="width: 200px">
-                <!-- job position icon -->
+                <!-- Job category/type  -->
                 <span aria-label="add to search" class="lg:inline-block hidden">
                   <a
                     href=""
                     class="border-transparent px-1 text-xs uppercase border-2 border-solid text-white font-medium bg-gray-500 rounded-sm flex-shrink-0 mr-1 mb-1 flex items-center"
-                  >
+                    data-component="job-category"
+                    >
                     Software Development
                   </a>
                 </span>
                 <!-- Salary -->
-                <div class="text-xs uppercase">yearly: $x - x USD</div>
+                <div class="text-xs uppercase" data-component="job-salary">yearly: $x - x USD</div>
               </div>
 
               <!-- time posted -->
               <span
                 class="font-medium bottom-3 right-3 absolute text-xs leading-none text-gray-400"
-              >
+                data-component="time-posted"
+                >
                 11h
               </span>
             </div>
@@ -713,7 +762,8 @@
             <!-- job posting 4 -->
             <div
               class="lg:flex hover:bg-gray-100 items-center px-5 py-3 lg:space-x-6 space-x-0 bg-white rounded-md cursor-pointer relative"
-            >
+              data-component="job-card"
+              >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
                 style="width: 48px; height: 48px"
@@ -734,17 +784,19 @@
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
-                  href="#"
+                  href="/jobExample.html"
                   class="font-medium text-lg text-black whitespace-pre-wrap"
+                  data-component="job-title"
                   >UI/UX Designer</a
                 >
-                <p class="font-normal mb-1 text-gray-500">AAA</p>
+                <p class="font-normal mb-1 text-gray-500" data-component="company-name">AAA</p>
                 <div class="flex items-center space-x-4 mb-1">
                   <span class="">
                     <a
                       href="#"
                       class="px-2 py-1 text-xs uppercase flex inline-flex items-center font-medium md:rounded-sm rounded-xl whitespace-pre-line bg-opacity-10 bg-gray-300 text-gray-600"
-                    >
+                      data-component="job-location"
+                      >
                       <img
                         src="./img/icons/icons8-global-50.png"
                         alt=""
@@ -759,13 +811,15 @@
                 </div>
               </div>
 
-              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden">
+              <!-- Job Badges (new, featured) -->
+              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden" data-component="job-badges">
                 <!-- new icon -->
                 <img
                   class="mr-2"
                   src="./img/icons/icons8-new-50.png"
                   alt="new job icon"
                   width="30"
+                  data-badge="new"
                 />
                 <!-- featured icon -->
                 <span>
@@ -774,17 +828,19 @@
                     alt="featured job icon"
                     class="mr-2"
                     width="30"
+                    data-badge="featured"
                   />
                 </span>
               </div>
 
               <!-- skill icons -->
-              <div class="flex flex-wrap mb-1 mr-1 flex-grow">
+              <div class="flex flex-wrap mb-1 mr-1 flex-grow" data-component="skill-tags">
                 <span class="relative inline-block mb-1" aria-label="">
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="fullstack"
+                    >
                     Fullstack
                   </a>
                 </span>
@@ -792,7 +848,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="react"
+                    >
                     React
                   </a>
                 </span>
@@ -800,7 +857,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="mongodb"
+                    >
                     Mango DB
                   </a>
                 </span>
@@ -808,7 +866,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="nodejs"
+                    >
                     Node JS
                   </a>
                 </span>
@@ -816,37 +875,42 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="typescript"
+                    >
                     Type Script
                   </a>
                 </span>
               </div>
 
               <div class="flex-shrink-0 mb-2 space-y-2" style="width: 200px">
-                <!-- job position icon -->
+                <!-- Job category/type  -->
                 <span aria-label="add to search" class="lg:inline-block hidden">
                   <a
                     href=""
                     class="border-transparent px-1 text-xs uppercase border-2 border-solid text-white font-medium bg-gray-500 rounded-sm flex-shrink-0 mr-1 mb-1 flex items-center"
-                  >
+                    data-component="job-category"
+                    >
                     Software Development
                   </a>
                 </span>
                 <!-- Salary -->
-                <div class="text-xs uppercase">yearly: $x - x USD</div>
+                <div class="text-xs uppercase" data-component="job-salary">yearly: $x - x USD</div>
               </div>
 
               <!-- time posted -->
               <span
                 class="font-medium bottom-3 right-3 absolute text-xs leading-none text-gray-400"
-              >
+                data-component="time-posted"
+                >
                 11h
               </span>
             </div>
+
             <!-- job posting 5 -->
             <div
               class="lg:flex hover:bg-gray-100 items-center px-5 py-3 lg:space-x-6 space-x-0 bg-white rounded-md cursor-pointer relative"
-            >
+              data-component="job-card"
+              >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
                 style="width: 48px; height: 48px"
@@ -867,17 +931,19 @@
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
-                  href="#"
+                  href="/jobExample.html"
                   class="font-medium text-lg text-black whitespace-pre-wrap"
+                  data-component="job-title"
                   >UI/UX Designer</a
                 >
-                <p class="font-normal mb-1 text-gray-500">AAA</p>
+                <p class="font-normal mb-1 text-gray-500" data-component="company-name">AAA</p>
                 <div class="flex items-center space-x-4 mb-1">
                   <span class="">
                     <a
                       href="#"
                       class="px-2 py-1 text-xs uppercase flex inline-flex items-center font-medium md:rounded-sm rounded-xl whitespace-pre-line bg-opacity-10 bg-gray-300 text-gray-600"
-                    >
+                      data-component="job-location"
+                      >
                       <img
                         src="./img/icons/icons8-global-50.png"
                         alt=""
@@ -892,13 +958,15 @@
                 </div>
               </div>
 
-              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden">
+              <!-- Job Badges (new, featured) -->
+              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden" data-component="job-badges">
                 <!-- new icon -->
                 <img
                   class="mr-2"
                   src="./img/icons/icons8-new-50.png"
                   alt="new job icon"
                   width="30"
+                  data-badge="new"
                 />
                 <!-- featured icon -->
                 <span>
@@ -907,17 +975,19 @@
                     alt="featured job icon"
                     class="mr-2"
                     width="30"
+                    data-badge="featured"
                   />
                 </span>
               </div>
 
               <!-- skill icons -->
-              <div class="flex flex-wrap mb-1 mr-1 flex-grow">
+              <div class="flex flex-wrap mb-1 mr-1 flex-grow" data-component="skill-tags">
                 <span class="relative inline-block mb-1" aria-label="">
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="fullstack"
+                    >
                     Fullstack
                   </a>
                 </span>
@@ -925,7 +995,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="react"
+                    >
                     React
                   </a>
                 </span>
@@ -933,7 +1004,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="mongodb"
+                    >
                     Mango DB
                   </a>
                 </span>
@@ -941,7 +1013,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="nodejs"
+                    >
                     Node JS
                   </a>
                 </span>
@@ -949,30 +1022,33 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="typescript"
+                    >
                     Type Script
                   </a>
                 </span>
               </div>
 
               <div class="flex-shrink-0 mb-2 space-y-2" style="width: 200px">
-                <!-- job position icon -->
+                <!-- Job category/type  -->
                 <span aria-label="add to search" class="lg:inline-block hidden">
                   <a
                     href=""
                     class="border-transparent px-1 text-xs uppercase border-2 border-solid text-white font-medium bg-gray-500 rounded-sm flex-shrink-0 mr-1 mb-1 flex items-center"
-                  >
+                    data-component="job-category"
+                    >
                     Software Development
                   </a>
                 </span>
                 <!-- Salary -->
-                <div class="text-xs uppercase">yearly: $x - x USD</div>
+                <div class="text-xs uppercase" data-component="job-salary">yearly: $x - x USD</div>
               </div>
 
               <!-- time posted -->
               <span
                 class="font-medium bottom-3 right-3 absolute text-xs leading-none text-gray-400"
-              >
+                data-component="time-posted"
+                >
                 11h
               </span>
             </div>
@@ -980,7 +1056,8 @@
             <!-- job posting 6 -->
             <div
               class="lg:flex hover:bg-gray-100 items-center px-5 py-3 lg:space-x-6 space-x-0 bg-white rounded-md cursor-pointer relative"
-            >
+              data-component="job-card"
+              >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
                 style="width: 48px; height: 48px"
@@ -1001,17 +1078,19 @@
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
-                  href="#"
+                  href="/jobExample.html"
                   class="font-medium text-lg text-black whitespace-pre-wrap"
+                  data-component="job-title"
                   >UI/UX Designer</a
                 >
-                <p class="font-normal mb-1 text-gray-500">AAA</p>
+                <p class="font-normal mb-1 text-gray-500" data-component="company-name">AAA</p>
                 <div class="flex items-center space-x-4 mb-1">
                   <span class="">
                     <a
                       href="#"
                       class="px-2 py-1 text-xs uppercase flex inline-flex items-center font-medium md:rounded-sm rounded-xl whitespace-pre-line bg-opacity-10 bg-gray-300 text-gray-600"
-                    >
+                      data-component="job-location"
+                      >
                       <img
                         src="./img/icons/icons8-global-50.png"
                         alt=""
@@ -1026,13 +1105,15 @@
                 </div>
               </div>
 
-              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden">
+              <!-- Job Badges (new, featured) -->
+              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden" data-component="job-badges">
                 <!-- new icon -->
                 <img
                   class="mr-2"
                   src="./img/icons/icons8-new-50.png"
                   alt="new job icon"
                   width="30"
+                  data-badge="new"
                 />
                 <!-- featured icon -->
                 <span>
@@ -1041,17 +1122,19 @@
                     alt="featured job icon"
                     class="mr-2"
                     width="30"
+                    data-badge="featured"
                   />
                 </span>
               </div>
 
               <!-- skill icons -->
-              <div class="flex flex-wrap mb-1 mr-1 flex-grow">
+              <div class="flex flex-wrap mb-1 mr-1 flex-grow" data-component="skill-tags">
                 <span class="relative inline-block mb-1" aria-label="">
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="fullstack"
+                    >
                     Fullstack
                   </a>
                 </span>
@@ -1059,7 +1142,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="react"
+                    >
                     React
                   </a>
                 </span>
@@ -1067,7 +1151,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="mongodb"
+                    >
                     Mango DB
                   </a>
                 </span>
@@ -1075,7 +1160,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="nodejs"
+                    >
                     Node JS
                   </a>
                 </span>
@@ -1083,30 +1169,33 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="typescript"
+                    >
                     Type Script
                   </a>
                 </span>
               </div>
 
               <div class="flex-shrink-0 mb-2 space-y-2" style="width: 200px">
-                <!-- job position icon -->
+                <!-- Job category/type  -->
                 <span aria-label="add to search" class="lg:inline-block hidden">
                   <a
                     href=""
                     class="border-transparent px-1 text-xs uppercase border-2 border-solid text-white font-medium bg-gray-500 rounded-sm flex-shrink-0 mr-1 mb-1 flex items-center"
-                  >
+                    data-component="job-category"
+                    >
                     Software Development
                   </a>
                 </span>
                 <!-- Salary -->
-                <div class="text-xs uppercase">yearly: $x - x USD</div>
+                <div class="text-xs uppercase" data-component="job-salary">yearly: $x - x USD</div>
               </div>
 
               <!-- time posted -->
               <span
                 class="font-medium bottom-3 right-3 absolute text-xs leading-none text-gray-400"
-              >
+                data-component="time-posted"
+                >
                 11h
               </span>
             </div>
@@ -1114,7 +1203,8 @@
             <!-- job posting 7 -->
             <div
               class="lg:flex hover:bg-gray-100 items-center px-5 py-3 lg:space-x-6 space-x-0 bg-white rounded-md cursor-pointer relative"
-            >
+              data-component="job-card"
+              >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
                 style="width: 48px; height: 48px"
@@ -1135,17 +1225,19 @@
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
-                  href="#"
+                  href="/jobExample.html"
                   class="font-medium text-lg text-black whitespace-pre-wrap"
+                  data-component="job-title"
                   >UI/UX Designer</a
                 >
-                <p class="font-normal mb-1 text-gray-500">AAA</p>
+                <p class="font-normal mb-1 text-gray-500" data-component="company-name">AAA</p>
                 <div class="flex items-center space-x-4 mb-1">
                   <span class="">
                     <a
                       href="#"
                       class="px-2 py-1 text-xs uppercase flex inline-flex items-center font-medium md:rounded-sm rounded-xl whitespace-pre-line bg-opacity-10 bg-gray-300 text-gray-600"
-                    >
+                      data-component="job-location"
+                      >
                       <img
                         src="./img/icons/icons8-global-50.png"
                         alt=""
@@ -1160,13 +1252,15 @@
                 </div>
               </div>
 
-              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden">
+              <!-- Job Badges (new, featured) -->
+              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden" data-component="job-badges">
                 <!-- new icon -->
                 <img
                   class="mr-2"
                   src="./img/icons/icons8-new-50.png"
                   alt="new job icon"
                   width="30"
+                  data-badge="new"
                 />
                 <!-- featured icon -->
                 <span>
@@ -1175,17 +1269,19 @@
                     alt="featured job icon"
                     class="mr-2"
                     width="30"
+                    data-badge="featured"
                   />
                 </span>
               </div>
 
               <!-- skill icons -->
-              <div class="flex flex-wrap mb-1 mr-1 flex-grow">
+              <div class="flex flex-wrap mb-1 mr-1 flex-grow" data-component="skill-tags">
                 <span class="relative inline-block mb-1" aria-label="">
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="fullstack"
+                    >
                     Fullstack
                   </a>
                 </span>
@@ -1193,7 +1289,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="react"
+                    >
                     React
                   </a>
                 </span>
@@ -1201,7 +1298,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="mongodb"
+                    >
                     Mango DB
                   </a>
                 </span>
@@ -1209,7 +1307,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="nodejs"
+                    >
                     Node JS
                   </a>
                 </span>
@@ -1217,30 +1316,33 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="typescript"
+                    >
                     Type Script
                   </a>
                 </span>
               </div>
 
               <div class="flex-shrink-0 mb-2 space-y-2" style="width: 200px">
-                <!-- job position icon -->
+                <!-- Job category/type  -->
                 <span aria-label="add to search" class="lg:inline-block hidden">
                   <a
                     href=""
                     class="border-transparent px-1 text-xs uppercase border-2 border-solid text-white font-medium bg-gray-500 rounded-sm flex-shrink-0 mr-1 mb-1 flex items-center"
-                  >
+                    data-component="job-category"
+                    >
                     Software Development
                   </a>
                 </span>
                 <!-- Salary -->
-                <div class="text-xs uppercase">yearly: $x - x USD</div>
+                <div class="text-xs uppercase" data-component="job-salary">yearly: $x - x USD</div>
               </div>
 
               <!-- time posted -->
               <span
                 class="font-medium bottom-3 right-3 absolute text-xs leading-none text-gray-400"
-              >
+                data-component="time-posted"
+                >
                 11h
               </span>
             </div>
@@ -1248,7 +1350,8 @@
             <!-- job posting 8 -->
             <div
               class="lg:flex hover:bg-gray-100 items-center px-5 py-3 lg:space-x-6 space-x-0 bg-white rounded-md cursor-pointer relative"
-            >
+              data-component="job-card"
+              >
               <div
                 class="rounded-xs flex-shrink-0 overflow-hidden flex items-center justify-center"
                 style="width: 48px; height: 48px"
@@ -1269,17 +1372,19 @@
 
               <div class="md:w-4/12 flex-shrink-0 w-full">
                 <a
-                  href="#"
+                  href="/jobExample.html"
                   class="font-medium text-lg text-black whitespace-pre-wrap"
+                  data-component="job-title"
                   >UI/UX Designer</a
                 >
-                <p class="font-normal mb-1 text-gray-500">AAA</p>
+                <p class="font-normal mb-1 text-gray-500" data-component="company-name">AAA</p>
                 <div class="flex items-center space-x-4 mb-1">
                   <span class="">
                     <a
                       href="#"
                       class="px-2 py-1 text-xs uppercase flex inline-flex items-center font-medium md:rounded-sm rounded-xl whitespace-pre-line bg-opacity-10 bg-gray-300 text-gray-600"
-                    >
+                      data-component="job-location"
+                      >
                       <img
                         src="./img/icons/icons8-global-50.png"
                         alt=""
@@ -1294,13 +1399,15 @@
                 </div>
               </div>
 
-              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden">
+              <!-- Job Badges (new, featured) -->
+              <div class="lg:w-28 lg:flex lg:flex-wrap lg:flex-shrink-0 hidden" data-component="job-badges">
                 <!-- new icon -->
                 <img
                   class="mr-2"
                   src="./img/icons/icons8-new-50.png"
                   alt="new job icon"
                   width="30"
+                  data-badge="new"
                 />
                 <!-- featured icon -->
                 <span>
@@ -1309,17 +1416,19 @@
                     alt="featured job icon"
                     class="mr-2"
                     width="30"
+                    data-badge="featured"
                   />
                 </span>
               </div>
 
               <!-- skill icons -->
-              <div class="flex flex-wrap mb-1 mr-1 flex-grow">
+              <div class="flex flex-wrap mb-1 mr-1 flex-grow" data-component="skill-tags">
                 <span class="relative inline-block mb-1" aria-label="">
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="fullstack"
+                    >
                     Fullstack
                   </a>
                 </span>
@@ -1327,7 +1436,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="react"
+                    >
                     React
                   </a>
                 </span>
@@ -1335,7 +1445,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="mongodb"
+                    >
                     Mango DB
                   </a>
                 </span>
@@ -1343,7 +1454,8 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="nodejs"
+                    >
                     Node JS
                   </a>
                 </span>
@@ -1351,30 +1463,33 @@
                   <a
                     href="#"
                     class="border-gray-500 px-1 py-1 text-sm uppercase border-2 border-solid inline-flex items-center font-medium rounded-xl whitespace-nowrap cursor-pointer text-gray-500"
-                  >
+                    data-skill="typescript"
+                    >
                     Type Script
                   </a>
                 </span>
               </div>
 
               <div class="flex-shrink-0 mb-2 space-y-2" style="width: 200px">
-                <!-- job position icon -->
+                <!-- Job category/type  -->
                 <span aria-label="add to search" class="lg:inline-block hidden">
                   <a
                     href=""
                     class="border-transparent px-1 text-xs uppercase border-2 border-solid text-white font-medium bg-gray-500 rounded-sm flex-shrink-0 mr-1 mb-1 flex items-center"
-                  >
+                    data-component="job-category"
+                    >
                     Software Development
                   </a>
                 </span>
                 <!-- Salary -->
-                <div class="text-xs uppercase">yearly: $x - x USD</div>
+                <div class="text-xs uppercase" data-component="job-salary">yearly: $x - x USD</div>
               </div>
 
               <!-- time posted -->
               <span
                 class="font-medium bottom-3 right-3 absolute text-xs leading-none text-gray-400"
-              >
+                data-component="time-posted"
+                >
                 11h
               </span>
             </div>
