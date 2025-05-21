@@ -54,13 +54,14 @@ const companyNames = [
   "EduSphere",
 ];
 
-// 検索候補をマージ
+// スプレッド演算子で検索候補をマージ
 const allKeywords = [...jobKeywords, ...companyNames];
 
+// jQueryが読み込まれた後に実行
 $(document).ready(function () {
   console.log("Search script loaded - Debug version");
 
-  // 検索関連要素
+  // jQuery検索関連要素
   const $searchInput = $("#job-search-input");
   const $searchForm = $("#job-search-form");
   const $searchResultDisplay = $("#search-query-display");
@@ -118,7 +119,7 @@ $(document).ready(function () {
       if ($searchResultDisplay.length > 0) {
         $searchResultDisplay.show();
 
-        // 検索語をスキルタグと同じスタイルで表示
+        // 検索wordをスキルタグと同じスタイルで表示
         const $searchTerm = $searchResultDisplay.find("#search-term span");
         if ($searchTerm.length > 0) {
           $searchTerm.text(decodeURIComponent(searchQuery));
